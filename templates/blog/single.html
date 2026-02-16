@@ -29,7 +29,7 @@
         {% endfor %}
     </p>
 
-    {% if page.toc and page.toc | length > 0 %}
+    {% if page.toc and page.toc | length > 0 and page.reading_time >= 10 %}
     <nav class="toc">
         <h3>Contents</h3>
         <ul>
