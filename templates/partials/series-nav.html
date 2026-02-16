@@ -1,0 +1,31 @@
+{% set blog = get_section(path="blog/_index.md") %}
+{% set series_posts = [] %}
+{% set series_name = page.extra.series %}
+{% set series_part = page.extra.series_part | default(value=1) %}
+
+{# Find all posts in this series #}
+{% for post in blog.pages %}
+    {% if post.extra.series and post.extra.series == series_name %}
+        {% set_global series_posts = series_posts | concat(with=post) %}
+    {% endif %}
+{% endfor %}
+
+{# Sort by series_part (manual since Zola doesn't have sort on extra fields easily) #}
+{% if series_posts | length > 1 %}
+<nav class="series-nav">
+    <div class="series-title">Part of a Series</div>
+    <div class="series-name">{{ series_name }}</div>
+    <ol class="series-parts">
+        {% for post in series_posts | sort(attribute="extra.series_part") %}
+        <li class="{% if post.permalink == page.permalink %}current{% endif %}">
+            <span class="part-number">{{ post.extra.series_part | default(value=loop.index) }}</span>
+            {% if post.permalink == page.permalink %}
+            <span class="part-title">{{ post.title }}</span>
+            {% else %}
+            <a href="{{ post.permalink }}">{{ post.title }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+</nav>
+{% endif %}

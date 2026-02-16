@@ -1,0 +1,43 @@
+<div class="social-share">
+    <span class="social-share-label">$ share --</span>
+    <a href="https://twitter.com/intent/tweet?url={{ page.permalink | urlencode }}&text={{ page.title | urlencode }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       title="Share on Twitter">
+        twitter
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.permalink | urlencode }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       title="Share on LinkedIn">
+        linkedin
+    </a>
+    <a href="https://news.ycombinator.com/submitlink?u={{ page.permalink | urlencode }}&t={{ page.title | urlencode }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       title="Share on Hacker News">
+        hn
+    </a>
+    <button class="social-share-btn copy-link-btn"
+            data-url="{{ page.permalink }}"
+            title="Copy link">
+        copy
+    </button>
+</div>
+
+<script>
+document.querySelectorAll('.copy-link-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var url = this.getAttribute('data-url');
+        navigator.clipboard.writeText(url).then(function() {
+            btn.textContent = 'copied!';
+            setTimeout(function() {
+                btn.textContent = 'copy';
+            }, 2000);
+        });
+    });
+});
+</script>

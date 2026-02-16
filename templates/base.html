@@ -47,6 +47,14 @@
 </head>
 
 <body>
+    {# Reading progress bar #}
+    {% if page is defined and page.reading_time is defined %}
+    <div class="reading-progress-bar">
+        <div class="reading-progress-fill"></div>
+        <span class="reading-progress-text">0%</span>
+    </div>
+    {% endif %}
+
     {# Scanline overlay #}
     {% include "partials/scanlines.html" %}
 
@@ -71,6 +79,7 @@
     {# Utility scripts #}
     <script src="/js/back-to-top.js" defer></script>
     <script src="/js/copy-code.js" defer></script>
+    <script src="/js/reading-progress.js" defer></script>
 
     {% block scripts %}{% endblock scripts %}
 </body>

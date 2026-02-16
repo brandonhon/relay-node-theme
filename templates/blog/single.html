@@ -4,6 +4,11 @@
 
 {% include "partials/breadcrumbs.html" %}
 
+{# Series navigation - show if post is part of a series #}
+{% if page.extra.series %}
+{% include "partials/series-nav.html" %}
+{% endif %}
+
 <section class="panel">
     <h2>{{ page.title }}</h2>
 
@@ -47,7 +52,13 @@
     <div class="content">
         {{ page.content | safe }}
     </div>
+
+    {# Social sharing #}
+    {% include "partials/social-share.html" %}
 </section>
+
+{# Related posts #}
+{% include "partials/related-posts.html" %}
 
 {% set blog = get_section(path="blog/_index.md") %}
 {% set prev_page = false %}

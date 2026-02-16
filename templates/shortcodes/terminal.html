@@ -1,0 +1,11 @@
+<div class="shortcode-terminal">
+    <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        {% if title %}
+        <span class="terminal-title">{{ title }}</span>
+        {% endif %}
+    </div>
+    <div class="terminal-body">{% if prompt | default(value=true) %}<span class="prompt">$</span> {% endif %}{{ body }}</div>
+</div>

@@ -31,7 +31,7 @@ WSL_IP := $(shell hostname -I | awk '{print $$1}')
 # Using output-dir outside the tree to avoid symlink loop triggering rebuild cycles
 serve: setup
 	@echo "Server will be available at http://$(WSL_IP):1111"
-	cd exampleSite && zola serve --interface 0.0.0.0 --port 1111 --base-url http://172.19.198.157 --output-dir /tmp/relay-node-public --force
+	cd exampleSite && zola serve --interface 0.0.0.0 --port 1111 --base-url http://$(WSL_IP) --output-dir /tmp/relay-node-public --force
 
 # Build the site
 build: setup

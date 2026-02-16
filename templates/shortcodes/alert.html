@@ -1,0 +1,6 @@
+<div class="shortcode-alert alert-{{ type | default(value='info') }}">
+    {% if title %}
+    <div class="alert-title">{{ title }}</div>
+    {% endif %}
+    <div class="alert-body">{{ body }}</div>
+</div>

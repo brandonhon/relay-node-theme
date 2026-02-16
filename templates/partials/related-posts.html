@@ -1,0 +1,35 @@
+{% if page.taxonomies.tags and page.taxonomies.tags | length > 0 %}
+{% set blog = get_section(path="blog/_index.md") %}
+{% set related = [] %}
+{% set current_tags = page.taxonomies.tags %}
+
+{% for post in blog.pages %}
+    {% if post.permalink != page.permalink %}
+        {% set shared_tags = 0 %}
+        {% if post.taxonomies.tags %}
+            {% for tag in post.taxonomies.tags %}
+                {% if tag in current_tags %}
+                    {% set_global shared_tags = shared_tags + 1 %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if shared_tags > 0 and related | length < 3 %}
+            {% set_global related = related | concat(with=post) %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% if related | length > 0 %}
+<section class="related-posts panel">
+    <h3>Related Transmissions</h3>
+    <div class="related-posts-grid">
+        {% for post in related %}
+        <a href="{{ post.permalink }}" class="related-post-card">
+            <span class="related-post-title">{{ post.title }}</span>
+            <span class="related-post-date">{{ post.date | date(format="%Y-%m-%d") }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% endif %}

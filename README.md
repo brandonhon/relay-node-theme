@@ -26,6 +26,10 @@ An industrial sci-fi Zola theme designed for SSH/Telnet ASCII cinema sites. Feat
 - **Last Updated Date** - Shows when posts were modified
 - **Syntax Highlighting** - Code blocks with Dracula theme
 - **Copy Code Button** - One-click copy for code blocks
+- **Reading Progress Bar** - Shows scroll progress at top of page
+- **Related Posts** - Shows similar posts based on shared tags
+- **Social Sharing** - Terminal-styled share buttons (Twitter, LinkedIn, HN, copy)
+- **Series Support** - Group posts into multi-part series
 
 ### Utilities
 
@@ -34,6 +38,7 @@ An industrial sci-fi Zola theme designed for SSH/Telnet ASCII cinema sites. Feat
 - **RSS Feed Link** - Visible feed link in navigation
 - **Print Stylesheet** - Clean output for printing
 - **Favicon Support** - Configurable favicon, SVG icon, and Apple touch icon
+- **Shortcodes** - Alert boxes, terminal blocks, ASCII boxes, callouts
 
 ## Requirements
 
@@ -162,6 +167,23 @@ tags = ["tag1", "tag2"]
 Post content...
 ```
 
+### Series (Multi-Part Posts)
+
+Group posts into a series by adding `series` and `series_part` to frontmatter:
+
+```markdown
++++
+title = "Building a CLI Tool - Part 1"
+date = 2024-01-15
+
+[extra]
+series = "Building a CLI Tool"
+series_part = 1
++++
+```
+
+Posts in the same series will show navigation to other parts.
+
 ### Archive Page (Optional)
 
 **content/archive.md**
@@ -231,6 +253,44 @@ The charts component expects:
   "labels": ["Mon", "Tue", "Wed", "Thu", "Fri"],
   "values": [120, 150, 180, 90, 200]
 }
+```
+
+## Shortcodes
+
+### Alert Box
+
+```markdown
+{{/* alert(type="info", title="Note") */}}
+This is an informational message.
+{{/* end */}}
+```
+
+Types: `info`, `warning`, `danger`, `success`
+
+### Terminal Block
+
+```markdown
+{{/* terminal(title="bash") */}}
+npm install zola-theme
+{{/* end */}}
+```
+
+### ASCII Art Box
+
+```markdown
+{{/* ascii_box() */}}
++------------------+
+|  ASCII ART HERE  |
++------------------+
+{{/* end */}}
+```
+
+### Callout
+
+```markdown
+{{/* callout(icon="!", title="Important") */}}
+Don't forget to configure your API keys.
+{{/* end */}}
 ```
 
 ## Templates
