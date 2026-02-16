@@ -1,0 +1,82 @@
+// CRT Scanline overlay effect
+
+.scanlines {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 50%
+    );
+    background-size: 100% 4px;
+    animation: scanline-scroll 8s linear infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    animation: flicker 0.15s infinite;
+  }
+}
+
+@keyframes scanline-scroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.27; }
+  5% { opacity: 0.34; }
+  10% { opacity: 0.27; }
+  15% { opacity: 0.34; }
+  20% { opacity: 0.29; }
+  25% { opacity: 0.34; }
+  30% { opacity: 0.27; }
+  35% { opacity: 0.30; }
+  40% { opacity: 0.27; }
+  45% { opacity: 0.29; }
+  50% { opacity: 0.30; }
+  55% { opacity: 0.31; }
+  60% { opacity: 0.30; }
+  65% { opacity: 0.29; }
+  70% { opacity: 0.32; }
+  75% { opacity: 0.30; }
+  80% { opacity: 0.28; }
+  85% { opacity: 0.30; }
+  90% { opacity: 0.27; }
+  95% { opacity: 0.29; }
+  100% { opacity: 0.27; }
+}
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  .scanlines {
+    &::before,
+    &::after {
+      animation: none;
+    }
+  }
+}

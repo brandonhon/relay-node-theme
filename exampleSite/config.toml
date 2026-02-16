@@ -1,0 +1,52 @@
+base_url = "https://example.com"
+title = "Relay Node Demo"
+description = "Industrial Sci-Fi ASCII Cinema Network - Demo Site"
+default_language = "en"
+compile_sass = true
+build_search_index = true
+theme = "relay-node"
+
+[search]
+index_format = "elasticlunr_json"
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+
+[[taxonomies]]
+name = "tags"
+feed = true
+
+[markdown]
+[markdown.highlighting]
+enabled = true
+theme = "dracula"
+
+[extra]
+# Core branding
+accent = "#ff6a1a"
+hero_title = "Relay"
+hero_subtitle = "Distributed ASCII Cinema Network"
+
+# Feature toggles
+enable_scanlines = true
+enable_theme_switcher = true
+enable_search = true
+enable_streaming = true
+enable_archive = true
+enable_rss_link = true
+
+# Default color scheme: orange | cyan | green | magenta
+color_scheme = "orange"
+
+# API configuration (for dynamic features)
+# These would point to your actual API endpoints
+[extra.api]
+streaming_endpoint = ""
+streaming_refresh = 30000
+charts_endpoint = ""
+
+# SEO defaults
+[extra.seo]
+og_image = ""
+twitter_handle = ""

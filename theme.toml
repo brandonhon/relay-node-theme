@@ -1,0 +1,40 @@
+name = "relay-node"
+description = "Industrial sci-fi Zola theme for SSH/Telnet ASCII cinema sites"
+license = "MIT"
+min_version = "0.19.0"
+homepage = "https://github.com/yourusername/relay-node-theme"
+demo = "https://yourusername.github.io/relay-node-theme/"
+
+[author]
+name = "Your Name"
+homepage = "https://yoursite.com"
+
+[extra]
+# Core branding
+accent = "#ff6a1a"
+hero_title = "Relay Node"
+hero_subtitle = "Distributed ASCII Cinema Network"
+
+# Feature toggles
+enable_scanlines = true
+enable_theme_switcher = true
+enable_search = true
+
+# Default color scheme: orange | cyan | green | magenta
+color_scheme = "orange"
+
+# API configuration (for dynamic features)
+[extra.api]
+streaming_endpoint = ""
+streaming_refresh = 30000
+charts_endpoint = ""
+
+# SEO defaults
+[extra.seo]
+og_image = ""
+twitter_handle = ""
+
+[extra.fonts]
+heading = "Oswald"
+body = "Oswald"
+mono = "monospace"

@@ -1,0 +1,9 @@
+{% if config.extra.enable_theme_switcher | default(value=false) %}
+<div class="theme-picker">
+  <span class="theme-label">Theme:</span>
+  <button data-set-theme="orange" class="theme-btn theme-orange" title="Orange" aria-label="Orange theme"></button>
+  <button data-set-theme="cyan" class="theme-btn theme-cyan" title="Cyan" aria-label="Cyan theme"></button>
+  <button data-set-theme="green" class="theme-btn theme-green" title="Green" aria-label="Green theme"></button>
+  <button data-set-theme="magenta" class="theme-btn theme-magenta" title="Magenta" aria-label="Magenta theme"></button>
+</div>
+{% endif %}

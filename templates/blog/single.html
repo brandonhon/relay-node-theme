@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "partials/breadcrumbs.html" %}
+
+<section class="panel">
+    <h2>{{ page.title }}</h2>
+
+    <p class="meta">
+        <span class="meta-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
+        {% if page.updated and page.updated != page.date %}
+        <span class="meta-updated">(Updated: {{ page.updated | date(format="%Y-%m-%d") }})</span>
+        {% endif %}
+        <span class="meta-separator">//</span>
+        <span class="meta-reading-time">{{ page.reading_time }} min read</span>
+        <span class="meta-separator">//</span>
+        <span class="meta-word-count">{{ page.word_count }} words</span>
+    </p>
+
+    <p class="meta meta-tags">
+        {% for tag in page.taxonomies.tags %}
+            <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="tag">#{{ tag }}</a>
+        {% endfor %}
+    </p>
+
+    {% if page.toc and page.toc | length > 0 %}
+    <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+        {% for h1 in page.toc %}
+            <li>
+                <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+                {% if h1.children %}
+                <ul>
+                    {% for h2 in h1.children %}
+                    <li><a href="{{ h2.permalink | safe }}">{{ h2.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </nav>
+    {% endif %}
+
+    <div class="content">
+        {{ page.content | safe }}
+    </div>
+</section>
+
+{% set blog = get_section(path="blog/_index.md") %}
+{% set prev_page = false %}
+{% set next_page = false %}
+{% set found_current = false %}
+{% for p in blog.pages %}
+    {% if found_current and not next_page %}
+        {% set_global next_page = p %}
+    {% endif %}
+    {% if p.permalink == page.permalink %}
+        {% set_global found_current = true %}
+    {% endif %}
+    {% if not found_current %}
+        {% set_global prev_page = p %}
+    {% endif %}
+{% endfor %}
+
+<nav class="post-nav">
+    {% if next_page %}
+    <a href="{{ next_page.permalink }}" class="post-nav-earlier">
+        <span class="post-nav-label">&larr; Older</span>
+        <span class="post-nav-title">{{ next_page.title }}</span>
+    </a>
+    {% else %}
+    <span class="post-nav-placeholder"></span>
+    {% endif %}
+
+    {% if prev_page %}
+    <a href="{{ prev_page.permalink }}" class="post-nav-later">
+        <span class="post-nav-label">Newer &rarr;</span>
+        <span class="post-nav-title">{{ prev_page.title }}</span>
+    </a>
+    {% endif %}
+</nav>
+
+{% endblock content %}

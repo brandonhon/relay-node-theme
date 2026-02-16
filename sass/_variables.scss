@@ -1,0 +1,52 @@
+// Base colors (non-theme dependent)
+$bg: #0f1114;
+$panel: #181c21;
+$text: #e6e6e6;
+$muted: #7b848e;
+$terminal-bg: #0c0e11;
+$terminal-green: #8aff80;
+
+// Theme color definitions
+$theme-orange: (
+  'accent': #ff6a1a,
+  'accent-light': #ff8844,
+  'accent-dark': #cc5515,
+  'glow': rgba(255, 106, 26, 0.3)
+);
+
+$theme-cyan: (
+  'accent': #00d4ff,
+  'accent-light': #33ddff,
+  'accent-dark': #00a8cc,
+  'glow': rgba(0, 212, 255, 0.3)
+);
+
+$theme-green: (
+  'accent': #8aff80,
+  'accent-light': #a8ff99,
+  'accent-dark': #6ecc66,
+  'glow': rgba(138, 255, 128, 0.3)
+);
+
+$theme-magenta: (
+  'accent': #ff00ff,
+  'accent-light': #ff44ff,
+  'accent-dark': #cc00cc,
+  'glow': rgba(255, 0, 255, 0.3)
+);
+
+// CSS Custom Properties (default to orange)
+:root {
+  --bg: #{$bg};
+  --panel: #{$panel};
+  --text: #{$text};
+  --muted: #{$muted};
+  --terminal-bg: #{$terminal-bg};
+  --terminal-green: #{$terminal-green};
+
+  // Default theme (orange)
+  --accent: #{map-get($theme-orange, 'accent')};
+  --accent-light: #{map-get($theme-orange, 'accent-light')};
+  --accent-dark: #{map-get($theme-orange, 'accent-dark')};
+  --accent-glow: #{map-get($theme-orange, 'glow')};
+}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Signal Lost | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section class="panel error-404">
+  <div class="error-code">
+    <span class="glitch" data-text="404">404</span>
+  </div>
+
+  <h2>Signal Not Found</h2>
+
+  <div class="terminal error-terminal">
+    <p>> TRANSMISSION INTERCEPTED</p>
+    <p>> TARGET COORDINATES: INVALID</p>
+    <p>> STATUS: <span class="error-text">CONNECTION LOST</span></p>
+    <p>> RECOMMENDED ACTION: RETURN TO BASE</p>
+  </div>
+
+  <nav class="error-nav">
+    <a href="{{ config.base_url | safe }}" class="btn btn-primary">Return to Base</a>
+    {% if config.extra.enable_search | default(value=true) %}
+    <a href="{{ get_url(path='@/search.md') | default(value='/search/') }}" class="btn btn-secondary">Search Network</a>
+    {% endif %}
+  </nav>
+</section>
+{% endblock content %}

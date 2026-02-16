@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Now Streaming | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section class="panel streaming-panel">
+  <h2>Now Streaming</h2>
+  <p class="meta">Live transmission status from the network</p>
+
+  <div id="streaming-status" class="streaming-status">
+    <div class="loading-indicator">
+      <span class="pulse"></span>
+      Connecting to network...
+    </div>
+  </div>
+
+  <div id="streaming-grid" class="streaming-grid"></div>
+
+  <div id="streaming-error" class="streaming-error" style="display: none;">
+    <p>Unable to establish connection to streaming endpoint.</p>
+    <button id="retry-connection" class="btn btn-secondary">Retry Connection</button>
+  </div>
+</section>
+
+{% if page.extra.show_charts | default(value=false) %}
+<section class="panel">
+  <h2>Network Statistics</h2>
+  {% set chart_endpoint = config.extra.api.charts_endpoint | default(value="") %}
+  {% set chart_title = "Viewer Activity" %}
+  {% include "partials/charts.html" %}
+</section>
+{% endif %}
+{% endblock content %}
+
+{% block scripts %}
+<script>
+  window.STREAMING_CONFIG = {
+    endpoint: '{{ config.extra.api.streaming_endpoint | default(value="") }}',
+    refreshInterval: {{ config.extra.api.streaming_refresh | default(value=30000) }}
+  };
+</script>
+<script src="/js/streaming.js"></script>
+{% if page.extra.show_charts | default(value=false) %}
+<script src="/js/charts.js"></script>
+{% endif %}
+{% endblock scripts %}

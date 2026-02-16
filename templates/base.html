@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="{{ config.default_language | default(value='en') }}" data-theme="{{ config.extra.color_scheme | default(value='orange') }}">
+<head>
+    {% block head_start %}{% endblock head_start %}
+
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {# Favicon #}
+    {% if config.extra.favicon %}
+    <link rel="icon" href="{{ config.extra.favicon }}" type="image/x-icon">
+    {% endif %}
+    {% if config.extra.favicon_svg %}
+    <link rel="icon" href="{{ config.extra.favicon_svg }}" type="image/svg+xml">
+    {% endif %}
+    {% if config.extra.apple_touch_icon %}
+    <link rel="apple-touch-icon" href="{{ config.extra.apple_touch_icon }}">
+    {% endif %}
+
+    {# RSS Feed #}
+    <link rel="alternate" type="application/atom+xml" title="{{ config.title }} Feed" href="{{ get_url(path='atom.xml') }}">
+
+    {# SEO and OpenGraph #}
+    {% include "partials/seo.html" %}
+
+    {# Fonts #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+
+    {# Styles #}
+    {% block head_styles %}
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/print.css" media="print">
+    {% endblock head_styles %}
+
+    {# Theme initialization (prevent flash) #}
+    <script>
+      (function() {
+        var theme = localStorage.getItem('relay-node-theme') || '{{ config.extra.color_scheme | default(value="orange") }}';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
+    {% block head_end %}{% endblock head_end %}
+</head>
+
+<body>
+    {# Scanline overlay #}
+    {% include "partials/scanlines.html" %}
+
+    <div class="container">
+        {% include "partials/header.html" %}
+
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+
+        {% include "partials/footer.html" %}
+    </div>
+
+    {# Back to top button #}
+    <button class="back-to-top" aria-label="Back to top">&uarr;</button>
+
+    {# Theme switcher script #}
+    {% if config.extra.enable_theme_switcher | default(value=false) %}
+    <script src="/js/theme-switcher.js" defer></script>
+    {% endif %}
+
+    {# Utility scripts #}
+    <script src="/js/back-to-top.js" defer></script>
+    <script src="/js/copy-code.js" defer></script>
+
+    {% block scripts %}{% endblock scripts %}
+</body>
+</html>

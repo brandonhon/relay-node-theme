@@ -1,0 +1,24 @@
+{#
+  Chart Component Partial
+  Usage: {% include "partials/charts.html" %}
+
+  Set these variables before including:
+  - chart_endpoint: API URL for chart data
+  - chart_type: "line" (default) or "bar"
+  - chart_title: Display title for the chart
+#}
+
+{% set endpoint = chart_endpoint | default(value="") %}
+{% set type = chart_type | default(value="line") %}
+{% set title = chart_title | default(value="Network Statistics") %}
+
+<div class="chart-container"
+     data-chart-endpoint="{{ endpoint }}"
+     data-chart-type="{{ type }}"
+     data-chart-title="{{ title }}">
+  <div class="chart-header">
+    <h3>{{ title }}</h3>
+    <span class="chart-status">Loading...</span>
+  </div>
+  <canvas class="chart-canvas"></canvas>
+</div>

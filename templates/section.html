@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section class="panel">
+  {% if section.title %}
+  <h2>{{ section.title }}</h2>
+  {% endif %}
+
+  {% if section.description %}
+  <p class="meta">{{ section.description }}</p>
+  {% endif %}
+
+  {% if section.content %}
+  <div class="section-content">
+    {{ section.content | safe }}
+  </div>
+  {% endif %}
+
+  {# Handle both paginated and non-paginated sections #}
+  {% if paginator %}
+    {% set pages = paginator.pages %}
+  {% else %}
+    {% set pages = section.pages %}
+  {% endif %}
+
+  {% if pages %}
+  <div class="section-pages">
+    {% for page in pages %}
+    <div class="blog-entry">
+      <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+      {% if page.date %}
+      <p class="meta">{{ page.date | date(format="%Y-%m-%d") }}</p>
+      {% endif %}
+      {% if page.summary %}
+      <p>{{ page.summary | safe }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if paginator and paginator.number_pagers > 1 %}
+  <nav class="pagination">
+    {% if paginator.previous %}
+    <a href="{{ paginator.previous }}" class="prev">&larr; Newer</a>
+    {% endif %}
+    <span class="page-info">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+    {% if paginator.next %}
+    <a href="{{ paginator.next }}" class="next">Older &rarr;</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</section>
+
+{% if section.subsections %}
+<section class="panel">
+  <h3>Subsections</h3>
+  <ul>
+    {% for subsection in section.subsections %}
+    {% set sub = get_section(path=subsection) %}
+    <li><a href="{{ sub.permalink }}">{{ sub.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endblock content %}

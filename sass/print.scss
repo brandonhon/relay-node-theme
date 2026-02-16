@@ -1,0 +1,142 @@
+// Print stylesheet - clean output for printing
+
+@media print {
+  // Hide non-essential elements
+  .scanlines,
+  .back-to-top,
+  .theme-picker,
+  .copy-button,
+  .pagination,
+  .post-nav,
+  .breadcrumbs,
+  .toc,
+  nav,
+  footer {
+    display: none !important;
+  }
+
+  // Reset colors for print
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  // Header simplification
+  header {
+    text-align: left;
+    margin-bottom: 20pt;
+    padding-bottom: 10pt;
+    border-bottom: 1pt solid #ccc;
+
+    h1 {
+      font-size: 18pt;
+      margin: 0;
+
+      span {
+        color: black !important;
+      }
+    }
+
+    .tagline {
+      display: none;
+    }
+  }
+
+  // Panel reset
+  .panel {
+    border: none;
+    border-left: 2pt solid #333;
+    padding: 10pt 20pt;
+    margin: 0;
+    page-break-inside: avoid;
+  }
+
+  // Typography
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  h2 {
+    font-size: 16pt;
+    margin-top: 0;
+  }
+
+  h3 {
+    font-size: 14pt;
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  // Links - show URL
+  a {
+    text-decoration: underline;
+
+    &[href^="http"]:after {
+      content: " (" attr(href) ")";
+      font-size: 10pt;
+      font-weight: normal;
+    }
+
+    &[href^="/"]:after,
+    &[href^="#"]:after {
+      content: "";
+    }
+  }
+
+  // Code blocks
+  pre, code {
+    font-size: 10pt;
+    border: 1pt solid #ccc;
+    background: #f5f5f5 !important;
+    page-break-inside: avoid;
+  }
+
+  pre {
+    padding: 10pt;
+    overflow: visible;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  // Images
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  // Meta info
+  .meta {
+    font-size: 10pt;
+    color: #666 !important;
+  }
+
+  // Tags
+  .tag {
+    border: 1pt solid #ccc;
+    padding: 2pt 5pt;
+    margin: 2pt;
+  }
+
+  // Blog entries
+  .blog-entry {
+    border-bottom: 1pt solid #eee;
+    padding: 10pt 0;
+  }
+}

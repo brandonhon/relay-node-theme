@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="panel">
+    <h2>Transmission Archive</h2>
+
+    {% for page in paginator.pages %}
+        <div class="blog-entry">
+            <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+            <p class="meta">{{ page.date | date(format="%Y-%m-%d") }}</p>
+            {% if page.summary %}
+            <p>{{ page.summary | safe }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    {% if paginator.number_pagers > 1 %}
+    <nav class="pagination">
+        {% if paginator.previous %}
+        <a href="{{ paginator.previous }}" class="prev">&larr; Newer</a>
+        {% endif %}
+        <span class="page-info">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+        {% if paginator.next %}
+        <a href="{{ paginator.next }}" class="next">Older &rarr;</a>
+        {% endif %}
+    </nav>
+    {% endif %}
+
+</section>
+
+{% endblock content %}

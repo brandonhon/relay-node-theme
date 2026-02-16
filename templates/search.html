@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Search | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section class="panel search-panel">
+  <h2>Search Transmissions</h2>
+  <p class="meta">Query the network archive</p>
+
+  <div class="search-container">
+    <input type="text"
+           id="search-input"
+           class="search-input"
+           placeholder="Enter search query..."
+           autocomplete="off"
+           autofocus>
+    <div class="search-status" id="search-status"></div>
+  </div>
+
+  <div id="search-results" class="search-results"></div>
+</section>
+{% endblock content %}
+
+{% block scripts %}
+<script src="/elasticlunr.min.js"></script>
+<script src="/js/search.js"></script>
+{% endblock scripts %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}#{{ term.name }} | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section class="panel">
+  <h2>Tagged: <span style="color: var(--accent);">#{{ term.name }}</span></h2>
+  <p class="meta">{{ term.pages | length }} transmission(s) found</p>
+
+  {% for page in term.pages %}
+  <div class="blog-entry">
+    <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+    <p class="meta">{{ page.date | date(format="%Y-%m-%d") }}</p>
+    {% if page.summary %}
+    <p>{{ page.summary | safe }}</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+
+<nav class="nav-back">
+  <a href="{{ get_url(path='tags') }}">&larr; All Tags</a>
+</nav>
+{% endblock content %}

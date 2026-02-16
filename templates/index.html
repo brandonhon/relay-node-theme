@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="panel">
+    <h2>Mission Brief</h2>
+    <p>
+        Stream films rendered in pure ASCII over secure terminal connections.
+    </p>
+</section>
+
+<section class="panel">
+    <h2>Connect</h2>
+    <div class="terminal">
+        ssh viewer@yourhost.net -p 2222
+    </div>
+</section>
+
+{% set_global blog = false %}
+{% set_global blog_pages = [] %}
+{% if config.extra %}
+  {% set blog = get_section(path="blog/_index.md", metadata_only=false) | default(value=false) %}
+  {% if blog %}
+    {% set_global blog_pages = blog.pages %}
+  {% endif %}
+{% endif %}
+
+{% if blog_pages | length > 0 %}
+<section class="panel">
+    <h2>Latest Transmissions</h2>
+
+    {% for page in blog_pages | slice(end=3) %}
+    <div class="blog-entry">
+        <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+        <p class="meta">{{ page.date | date(format="%Y-%m-%d") }}</p>
+        {% if page.summary %}
+        <p>{{ page.summary | safe }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <p style="margin-top: 1.5rem;">
+        <a href="{{ get_url(path='@/blog/_index.md') }}">View all transmissions &rarr;</a>
+    </p>
+</section>
+{% endif %}
+
+{% endblock content %}

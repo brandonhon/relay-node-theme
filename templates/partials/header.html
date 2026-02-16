@@ -1,0 +1,34 @@
+<header>
+
+    <h1>
+        <a href="{{ config.base_url | safe }}">
+            {{ config.extra.hero_title | default(value="Relay") }}
+            <span>Node</span>
+        </a>
+    </h1>
+
+    <p class="tagline">
+        {{ config.extra.hero_subtitle | default(value="ASCII Cinema Network") }}
+    </p>
+
+    <nav>
+        <a href="{{ config.base_url | safe }}">Home</a>
+        <a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a>
+        {% if config.extra.enable_archive | default(value=false) %}
+        <a href="{{ get_url(path='@/archive.md') }}">Archive</a>
+        {% endif %}
+        {% if config.extra.enable_streaming | default(value=false) %}
+        <a href="{{ get_url(path='@/streaming.md') }}">Streaming</a>
+        {% endif %}
+        {% if config.extra.enable_search | default(value=true) %}
+        <a href="{{ get_url(path='@/search.md') }}">Search</a>
+        {% endif %}
+        <a href="{{ get_url(path='@/about.md') }}">About</a>
+        {% if config.extra.enable_rss_link | default(value=true) %}
+        <a href="{{ get_url(path='atom.xml') }}" class="rss-link" title="RSS Feed">RSS</a>
+        {% endif %}
+
+        {% include "partials/theme-picker.html" %}
+    </nav>
+
+</header>

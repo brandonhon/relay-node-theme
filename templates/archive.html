@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Archive | {{ config.title }}{% endblock title %}
+
+{% block content %}
+
+{% include "partials/breadcrumbs.html" %}
+
+<section class="panel">
+    <h2>{{ page.title }}</h2>
+    {% if page.description %}
+    <p class="meta">{{ page.description }}</p>
+    {% endif %}
+
+    {% set blog_section = get_section(path="blog/_index.md") %}
+
+    {% set defined_years = [] %}
+    {% for post in blog_section.pages %}
+        {% set year = post.date | date(format="%Y") %}
+        {% if year not in defined_years %}
+            {% set_global defined_years = defined_years | concat(with=year) %}
+        {% endif %}
+    {% endfor %}
+
+    {% for year in defined_years %}
+    <div class="archive-year">
+        <h3>{{ year }}</h3>
+
+        {% set defined_months = [] %}
+        {% for post in blog_section.pages %}
+            {% set post_year = post.date | date(format="%Y") %}
+            {% if post_year == year %}
+                {% set month = post.date | date(format="%m") %}
+                {% if month not in defined_months %}
+                    {% set_global defined_months = defined_months | concat(with=month) %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        {% for month in defined_months %}
+        <div class="archive-month">
+            {% set month_name = "" %}
+            {% if month == "01" %}{% set month_name = "January" %}
+            {% elif month == "02" %}{% set month_name = "February" %}
+            {% elif month == "03" %}{% set month_name = "March" %}
+            {% elif month == "04" %}{% set month_name = "April" %}
+            {% elif month == "05" %}{% set month_name = "May" %}
+            {% elif month == "06" %}{% set month_name = "June" %}
+            {% elif month == "07" %}{% set month_name = "July" %}
+            {% elif month == "08" %}{% set month_name = "August" %}
+            {% elif month == "09" %}{% set month_name = "September" %}
+            {% elif month == "10" %}{% set month_name = "October" %}
+            {% elif month == "11" %}{% set month_name = "November" %}
+            {% elif month == "12" %}{% set month_name = "December" %}
+            {% endif %}
+            <h4>{{ month_name }}</h4>
+            <ul>
+            {% for post in blog_section.pages %}
+                {% set post_year = post.date | date(format="%Y") %}
+                {% set post_month = post.date | date(format="%m") %}
+                {% if post_year == year and post_month == month %}
+                <li>
+                    <a href="{{ post.permalink }}">{{ post.title }}</a>
+                    <span class="archive-date">{{ post.date | date(format="%d") }}</span>
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock content %}

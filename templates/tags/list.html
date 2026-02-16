@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Tags | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section class="panel">
+  <h2>Signal Tags</h2>
+  <p class="meta">Browse transmissions by classification</p>
+
+  <div class="tag-cloud">
+    {% for term in terms %}
+    <a href="{{ term.permalink }}" class="tag-item">
+      <span class="tag-name">#{{ term.name }}</span>
+      <span class="tag-count">{{ term.pages | length }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock content %}
