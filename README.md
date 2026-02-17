@@ -275,7 +275,7 @@ npm install zola-theme
 {{/* end */}}
 ```
 
-### ASCII Art Box
+### ASCII Art Box (Simple)
 
 ```markdown
 {{/* ascii_box() */}}
@@ -284,6 +284,23 @@ npm install zola-theme
 +------------------+
 {{/* end */}}
 ```
+
+### ASCII Art (Full Featured)
+
+```markdown
+{{/* ascii_art(title="Robot", caption="A friendly robot", class="glow") */}}
+    ___
+   [o_o]
+   /| |\
+   _| |_
+{{/* end */}}
+```
+
+Options:
+- `title` - Header text above the art
+- `caption` - Caption below the art
+- `class` - Style variants: `centered`, `large`, `small`, `no-border`, `glow`
+- `align` - Text alignment: `left`, `center`, `right`
 
 ### Callout
 

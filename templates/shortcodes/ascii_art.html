@@ -1,0 +1,9 @@
+<figure class="shortcode-ascii-art{% if class %} {{ class }}{% endif %}">
+    {% if title %}
+    <figcaption class="ascii-art-title">{{ title }}</figcaption>
+    {% endif %}
+    <pre class="ascii-art-content"{% if align %} style="text-align: {{ align }};"{% endif %}>{{ body }}</pre>
+    {% if caption %}
+    <figcaption class="ascii-art-caption">{{ caption }}</figcaption>
+    {% endif %}
+</figure>

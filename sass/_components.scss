@@ -817,6 +817,79 @@ pre {
   color: var(--accent);
 }
 
+// ASCII Art shortcode
+.shortcode-ascii-art {
+  margin: 2rem 0;
+  padding: 0;
+
+  .ascii-art-title {
+    font-family: monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+
+    &::before {
+      content: "/* ";
+    }
+    &::after {
+      content: " */";
+    }
+  }
+
+  .ascii-art-content {
+    margin: 0;
+    padding: 1.5rem;
+    background: var(--terminal-bg);
+    border: 1px solid var(--accent);
+    border-left: 4px solid var(--accent);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: var(--accent);
+    overflow-x: auto;
+    white-space: pre;
+
+    // Ensure consistent character width
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+  }
+
+  .ascii-art-caption {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    font-style: italic;
+  }
+
+  // Variants
+  &.centered .ascii-art-content {
+    text-align: center;
+  }
+
+  &.large .ascii-art-content {
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+
+  &.small .ascii-art-content {
+    font-size: 0.6rem;
+    line-height: 1.15;
+  }
+
+  &.no-border .ascii-art-content {
+    border: none;
+    background: transparent;
+  }
+
+  &.glow .ascii-art-content {
+    text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+  }
+}
+
 .shortcode-callout {
   display: flex;
   gap: 1rem;
