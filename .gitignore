@@ -1,6 +1,7 @@
 # Build output
 public/
 /exampleSite/public/
+/exampleSite/themes/
 
 # Temp files
 *.swp
