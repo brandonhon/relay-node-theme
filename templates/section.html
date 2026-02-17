@@ -3,6 +3,8 @@
 {% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
+{% include "partials/breadcrumbs.html" %}
+
 <section class="panel">
   {% if section.title %}
   <h2>{{ section.title }}</h2>

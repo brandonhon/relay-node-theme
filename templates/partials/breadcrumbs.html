@@ -1,15 +1,28 @@
 <nav class="breadcrumbs" aria-label="Breadcrumb">
     <a href="{{ config.base_url | safe }}">/</a>
-    {% if section is defined %}
-    <span class="breadcrumb-separator">&gt;</span>
-    <a href="{{ section.permalink }}">{{ section.title | lower }}</a>
-    {% elif page is defined and page.ancestors | length > 0 %}
-        {% for ancestor in page.ancestors %}
-            {% set ancestor_section = get_section(path=ancestor) %}
-            <span class="breadcrumb-separator">&gt;</span>
-            <a href="{{ ancestor_section.permalink }}">{{ ancestor_section.title | lower }}</a>
-        {% endfor %}
-    <span class="breadcrumb-separator">&gt;</span>
-    <span class="breadcrumb-current">{{ page.title | lower | truncate(length=30) }}</span>
+    {% if section is defined and section.path != "_index.md" %}
+        {# Section page (like /blog/) #}
+        {% if section.ancestors | length > 0 %}
+            {% for ancestor in section.ancestors %}
+                {% set ancestor_section = get_section(path=ancestor) %}
+                <span class="breadcrumb-separator">&gt;</span>
+                <a href="{{ ancestor_section.permalink }}">{{ ancestor_section.title | lower }}</a>
+            {% endfor %}
+        {% endif %}
+        <span class="breadcrumb-separator">&gt;</span>
+        <span class="breadcrumb-current">{{ section.title | lower }}</span>
+    {% elif page is defined %}
+        {# Regular page #}
+        {% if page.ancestors | length > 0 %}
+            {% for ancestor in page.ancestors %}
+                {% set ancestor_section = get_section(path=ancestor) %}
+                {% if ancestor_section.path != "_index.md" %}
+                <span class="breadcrumb-separator">&gt;</span>
+                <a href="{{ ancestor_section.permalink }}">{{ ancestor_section.title | lower }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <span class="breadcrumb-separator">&gt;</span>
+        <span class="breadcrumb-current">{{ page.title | lower | truncate(length=30) }}</span>
     {% endif %}
 </nav>
