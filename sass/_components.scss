@@ -187,6 +187,16 @@ footer {
   font-size: 0.85rem;
   letter-spacing: 1px;
   text-transform: uppercase;
+
+  .footer-status {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-build {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    font-family: monospace;
+  }
 }
 
 // Buttons

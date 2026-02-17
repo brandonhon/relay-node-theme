@@ -69,6 +69,8 @@ Add to your `config.toml`:
 theme = "relay-node"
 compile_sass = true
 build_search_index = true
+generate_feeds = true
+feed_filenames = ["atom.xml"]
 
 [search]
 index_format = "elasticlunr_json"

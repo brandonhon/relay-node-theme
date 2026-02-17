@@ -1,3 +1,8 @@
 <footer>
-    NODE STATUS: ONLINE // ENCRYPTION: ACTIVE // SIGNAL STRENGTH: STABLE
+    <div class="footer-status">
+        NODE STATUS: ONLINE // ENCRYPTION: ACTIVE // SIGNAL STRENGTH: STABLE
+    </div>
+    <div class="footer-build">
+        LAST BUILD: {{ now() | date(format="%Y-%m-%d %H:%M UTC") }}
+    </div>
 </footer>
