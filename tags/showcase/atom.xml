@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Relay Node Demo - showcase</title>
+    <subtitle>Industrial Sci-Fi ASCII Cinema Network - Demo Site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://example.com/tags/showcase/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://example.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-02-10T00:00:00+00:00</updated>
+    <id>https://example.com/tags/showcase/atom.xml</id>
+    <entry xml:lang="en">
+        <title>ASCII Art Showcase</title>
+        <published>2024-02-10T00:00:00+00:00</published>
+        <updated>2024-02-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://example.com/blog/ascii-art-showcase/"/>
+        <id>https://example.com/blog/ascii-art-showcase/</id>
+        
+        <content type="html" xml:base="https://example.com/blog/ascii-art-showcase/">&lt;p&gt;This month we highlight exceptional ASCII artists contributing to the network archive.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;featured-works&quot;&gt;Featured Works&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;digital-sunset-by-noderunner&quot;&gt;&quot;Digital Sunset&quot; by NodeRunner&lt;&#x2F;h3&gt;
+&lt;p&gt;A stunning landscape piece using advanced ANSI coloring techniques. The gradient work demonstrates mastery of the 256-color palette.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;binary-dreams-by-cipherart&quot;&gt;&quot;Binary Dreams&quot; by CipherArt&lt;&#x2F;h3&gt;
+&lt;p&gt;An abstract exploration of data visualization rendered in pure monochrome. Each character carefully chosen to create depth and movement.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;submit-your-work&quot;&gt;Submit Your Work&lt;&#x2F;h2&gt;
+&lt;p&gt;Artists interested in contributing to the network archive should prepare their pieces in the following formats:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maximum dimensions: 80x24 characters&lt;&#x2F;li&gt;
+&lt;li&gt;Encoding: UTF-8&lt;&#x2F;li&gt;
+&lt;li&gt;Color: ANSI 256 or 16-color compatible&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Contact the archive maintainers via encrypted channel for submission guidelines.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

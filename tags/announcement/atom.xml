@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Relay Node Demo - announcement</title>
+    <subtitle>Industrial Sci-Fi ASCII Cinema Network - Demo Site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://example.com/tags/announcement/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://example.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-01-15T00:00:00+00:00</updated>
+    <id>https://example.com/tags/announcement/atom.xml</id>
+    <entry xml:lang="en">
+        <title>First Transmission</title>
+        <published>2024-01-15T00:00:00+00:00</published>
+        <updated>2024-01-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://example.com/blog/first-transmission/"/>
+        <id>https://example.com/blog/first-transmission/</id>
+        
+        <content type="html" xml:base="https://example.com/blog/first-transmission/">&lt;p&gt;The relay network is now online. All nodes have synchronized and are ready to receive transmissions.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;network-status&quot;&gt;Network Status&lt;&#x2F;h2&gt;
+&lt;p&gt;All primary and secondary nodes are operational:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Node Alpha&lt;&#x2F;strong&gt; (US-East): Online&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Node Beta&lt;&#x2F;strong&gt; (EU-Central): Online&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Node Gamma&lt;&#x2F;strong&gt; (APAC): Online&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;connection-instructions&quot;&gt;Connection Instructions&lt;&#x2F;h2&gt;
+&lt;p&gt;To connect to the nearest relay node:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;ssh viewer@relay.example.com -p 2222
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;For Telnet access:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;telnet relay.example.com 23
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Welcome to the network.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

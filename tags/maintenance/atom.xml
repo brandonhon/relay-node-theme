@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Relay Node Demo - maintenance</title>
+    <subtitle>Industrial Sci-Fi ASCII Cinema Network - Demo Site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://example.com/tags/maintenance/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://example.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-03-01T00:00:00+00:00</updated>
+    <id>https://example.com/tags/maintenance/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Network Status Update</title>
+        <published>2024-03-01T00:00:00+00:00</published>
+        <updated>2024-03-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://example.com/blog/network-status/"/>
+        <id>https://example.com/blog/network-status/</id>
+        
+        <content type="html" xml:base="https://example.com/blog/network-status/">&lt;p&gt;Scheduled maintenance window completed. All systems nominal.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;recent-improvements&quot;&gt;Recent Improvements&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;bandwidth-optimization&quot;&gt;Bandwidth Optimization&lt;&#x2F;h3&gt;
+&lt;p&gt;We&#x27;ve implemented new compression algorithms that reduce bandwidth usage by approximately 40% while maintaining visual fidelity. This is particularly beneficial for users on limited connections.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;new-relay-nodes&quot;&gt;New Relay Nodes&lt;&#x2F;h3&gt;
+&lt;p&gt;Two new relay nodes have been deployed:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Node&lt;&#x2F;th&gt;&lt;th&gt;Location&lt;&#x2F;th&gt;&lt;th&gt;Status&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Delta&lt;&#x2F;td&gt;&lt;td&gt;SA-East&lt;&#x2F;td&gt;&lt;td&gt;Online&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Epsilon&lt;&#x2F;td&gt;&lt;td&gt;AF-South&lt;&#x2F;td&gt;&lt;td&gt;Testing&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;archive-expansion&quot;&gt;Archive Expansion&lt;&#x2F;h3&gt;
+&lt;p&gt;The central archive now contains over 10,000 ASCII cinema recordings, including:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Classic film conversions&lt;&#x2F;li&gt;
+&lt;li&gt;Original network productions&lt;&#x2F;li&gt;
+&lt;li&gt;Live stream recordings&lt;&#x2F;li&gt;
+&lt;li&gt;Interactive experiences&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;upcoming-maintenance&quot;&gt;Upcoming Maintenance&lt;&#x2F;h2&gt;
+&lt;p&gt;The next scheduled maintenance window will occur on the first Sunday of next month, 0200-0400 UTC. Expect intermittent connectivity during this period.&lt;&#x2F;p&gt;
+&lt;p&gt;Stay connected.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Just Testing</title>
+        <published>2024-03-01T00:00:00+00:00</published>
+        <updated>2024-03-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://example.com/blog/test/"/>
+        <id>https://example.com/blog/test/</id>
+        
+        <content type="html" xml:base="https://example.com/blog/test/">&lt;p&gt;Scheduled maintenance window completed. All systems nominal.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;recent-improvements&quot;&gt;Recent Improvements&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;bandwidth-optimization&quot;&gt;Bandwidth Optimization&lt;&#x2F;h3&gt;
+&lt;p&gt;We&#x27;ve implemented new compression algorithms that reduce bandwidth usage by approximately 40% while maintaining visual fidelity. This is particularly beneficial for users on limited connections.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;new-relay-nodes&quot;&gt;New Relay Nodes&lt;&#x2F;h3&gt;
+&lt;p&gt;Two new relay nodes have been deployed:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Node&lt;&#x2F;th&gt;&lt;th&gt;Location&lt;&#x2F;th&gt;&lt;th&gt;Status&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Delta&lt;&#x2F;td&gt;&lt;td&gt;SA-East&lt;&#x2F;td&gt;&lt;td&gt;Online&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Epsilon&lt;&#x2F;td&gt;&lt;td&gt;AF-South&lt;&#x2F;td&gt;&lt;td&gt;Testing&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;archive-expansion&quot;&gt;Archive Expansion&lt;&#x2F;h3&gt;
+&lt;p&gt;The central archive now contains over 10,000 ASCII cinema recordings, including:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Classic film conversions&lt;&#x2F;li&gt;
+&lt;li&gt;Original network productions&lt;&#x2F;li&gt;
+&lt;li&gt;Live stream recordings&lt;&#x2F;li&gt;
+&lt;li&gt;Interactive experiences&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;upcoming-maintenance&quot;&gt;Upcoming Maintenance&lt;&#x2F;h2&gt;
+&lt;p&gt;The next scheduled maintenance window will occur on the first Sunday of next month, 0200-0400 UTC. Expect intermittent connectivity during this period.&lt;&#x2F;p&gt;
+&lt;p&gt;Stay connected.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
