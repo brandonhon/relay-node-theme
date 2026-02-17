@@ -38,7 +38,11 @@ An industrial sci-fi Zola theme designed for SSH/Telnet ASCII cinema sites. Feat
 - **RSS Feed Link** - Visible feed link in navigation
 - **Print Stylesheet** - Clean output for printing
 - **Favicon Support** - Configurable favicon, SVG icon, and Apple touch icon
-- **Shortcodes** - Alert boxes, terminal blocks, ASCII boxes, callouts
+- **Shortcodes** - Alert boxes, terminal blocks, ASCII art, callouts
+- **Anchor Links** - Click heading `#` to copy permalink
+- **Image Lightbox** - Click images to enlarge in modal
+- **Keyboard Shortcuts** - `Ctrl+K` or `/` to focus search
+- **Glitch Effect** - Subtle glitch animation on headings
 
 ## Requirements
 
@@ -387,9 +391,14 @@ relay-node-theme/
 │   ├── streaming.js
 │   ├── charts.js
 │   ├── back-to-top.js
-│   └── copy-code.js
+│   ├── copy-code.js
+│   ├── reading-progress.js
+│   ├── anchor-links.js
+│   ├── lightbox.js
+│   └── search-shortcut.js
 ├── templates/                 # Zola templates
 │   ├── partials/
+│   ├── shortcodes/
 │   └── tags/
 ├── Makefile
 ├── theme.toml
